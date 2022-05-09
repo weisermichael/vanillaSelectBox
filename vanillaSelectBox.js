@@ -1307,6 +1307,18 @@ vanillaSelectBox.prototype.setValue = function (values) {
     }
 }
 
+vanillaSelectBox.prototype.getValue = function () {
+    let self=this;
+    let results = [];
+
+    self.root.querySelectorAll("option").forEach((x) => {
+        if(x.selected){
+            results.push(x.value)
+        }
+    })
+    return results;
+}
+
 vanillaSelectBox.prototype.privateSendChange = function () {
     let event = document.createEvent('HTMLEvents');
     event.initEvent('change', true, false);
