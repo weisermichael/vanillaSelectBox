@@ -193,7 +193,7 @@
             <button class="demo" onClick="disableItems('brandsOne','Alpine,Bentley')">disableItems('Alpine,Bentley')</button>
             <button class="demo" onClick="enableItems('brandsOne','Alpine,Bentley')">enableItems('Alpine,Bentley')</button>
 			<br/><br/>
-			<button class="demo" style="width:140px;" onClick="document.getElementById('brandsOneChoice').innerHTML=document.getElementById('brandsOne').value;">get select value</button>
+			<button class="demo" style="width:140px;" onClick="document.getElementById('brandsOneChoice').innerHTML=(getValues('brandsOne')).join(',');">get select value</button>
 			<span id="brandsOneChoice"></span>
 		</div>
 		<div class="btns-inactive"  style="display:none">;
@@ -405,12 +405,11 @@
     }
     function getValues(id) {
         let result = [];
-        let collection = document.querySelectorAll("#" + id + " option");
-        collection.forEach(function (x) {
-            if (x.selected) {
-                result.push(x.value);
-            }
-        });
+        if (id == "brandsOne" && selectBox != null) {
+            return selectBox.getValue();
+        } else if (id == "brandsMulti" && selectBox2 != null) {
+            return selectBox2.getValue();
+        }
         return result;
     }
 
