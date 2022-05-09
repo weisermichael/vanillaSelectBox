@@ -251,7 +251,7 @@ function vanillaSelectBox(domSelector, options) {
             already.remove();
         }
         this.main = document.createElement("div");
-        this.root.parentNode.insertBefore(this.main, this.root.nextSibling);
+        this.root.parentNode.insertBefore(this.main, this.root.nextSibling);    //inserts main div after html sel element
         this.main.classList.add("vsb-main");
         this.main.setAttribute("id", "btn-group-" + this.rootToken);
         this.main.style.marginLeft = this.main.style.marginLeft;
@@ -307,7 +307,7 @@ function vanillaSelectBox(domSelector, options) {
         this.ul.style.minHeight = this.ulminHeight + "px";
         if (this.isMultiple) {
             this.ul.classList.add("multi");
-            if (!self.userOptions.disableSelectAll) {
+            if (!self.userOptions.disableSelectAll) {   //add select All option to html sel element
                 let selectAll = document.createElement("option");
                 selectAll.setAttribute("value", 'all');
                 selectAll.innerText = self.userOptions.translations.selectAll;
